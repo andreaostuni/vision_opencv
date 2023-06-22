@@ -1,5 +1,5 @@
 # add library
-add_library(${PROJECT_NAME} cv_bridge.cpp rgb_colors.cpp)
+add_library(${PROJECT_NAME} cv_bridge.cpp cv_mat_sensor_msgs_image_type_adapter.cpp rgb_colors.cpp)
 include(GenerateExportHeader)
 generate_export_header(${PROJECT_NAME} EXPORT_FILE_NAME ${PROJECT_NAME}/${PROJECT_NAME}_export.h)
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -10,6 +10,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
   ${sensor_msgs_TARGETS}
   opencv_core
   opencv_imgproc
+  rclcpp::rclcpp
   opencv_imgcodecs)
 target_link_libraries(${PROJECT_NAME} PRIVATE
   Boost::headers
