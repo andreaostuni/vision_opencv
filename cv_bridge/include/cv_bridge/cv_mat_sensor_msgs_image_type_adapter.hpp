@@ -250,6 +250,9 @@ struct rclcpp::TypeAdapter<cv_bridge::ROSCvMatContainer, sensor_msgs::msg::Image
         case CV_8UC4:
           destination.encoding = "rgba8";
           break;
+        case CV_32FC1:
+          destination.encoding = "32FC1";
+          break;
         default:
           throw std::runtime_error("unsupported encoding type");
       }
